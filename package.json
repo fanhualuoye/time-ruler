@@ -1,0 +1,73 @@
+{
+  "name": "pmp-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "better-scroll": "^2.5.1",
+    "core-js": "^3.8.3",
+    "crypto-js": "^4.1.1",
+    "decimal.js": "^10.4.3",
+    "echarts": "5.4.2",
+    "element-resize-detector": "^1.2.4",
+    "focus-outside": "^1.0.0",
+    "gm-crypto": "^0.1.8",
+    "gosuncn-ui": "1.0.15",
+    "html2canvas": "^1.4.1",
+    "js-cookie": "^3.0.1",
+    "leaflet": "1.9.3",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "path-browserify": "^1.0.1",
+    "pdfjs-dist": "^2.0.943",
+    "proj4": "^2.8.0",
+    "proj4leaflet": "^1.0.2",
+    "qiankun": "^2.4.2",
+    "qs": "^6.11.2",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2",
+    "webpack-bundle-analyzer": "^4.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@babel/plugin-proposal-optional-chaining": "^7.18.9",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "less": "^4.0.0",
+    "less-loader": "^8.0.0",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
