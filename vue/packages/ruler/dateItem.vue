@@ -23,10 +23,6 @@ export default {
         type: {
             type: String | Number,
             default: 1
-        },
-        value: {
-            type: Array,
-            default: () => []
         }
     },
     data() {

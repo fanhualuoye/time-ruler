@@ -3,7 +3,8 @@ import './index.less'
 import Ruler from './manage.js'
 import DateItem from "./dateItem"
 
-const TimeRuler = (date = new Date()) => {
+const TimeRuler = (props) => {
+	const date = props.date || new Date()
 	const RulerBody = useRef(null)
 	const rulePage = useRef(null)
 	const scrollRule = useRef(null)
@@ -19,13 +20,18 @@ const TimeRuler = (date = new Date()) => {
 
 	useEffect(() => {
 		ru = new Ruler(RulerBody.current, rulePage.current, scrollRule.current, date,
-			() => {
+			(time) => {
+				if (props.change) {
+					props.change(time)
+				}
 			},
 			(r) => {
 				setRuler({
 					...r
 				})
-
+				if (props.changeTime) {
+					props.changeTime(r.day + ' ' + r.nowTime)
+				}
 			})
 		setUpdate(true)
 	}, [])

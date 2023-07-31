@@ -1,11 +1,11 @@
 {
-    "name": "gosuncn-ui",
-    "version": "1.0.15",
+    "name": "@time-ruler/vue",
+    "version": "1.0.0",
     "private": false,
-    "author": "gosuncn",
+    "author": "liangweijian",
     "license": "ISC",
     "main": "lib/index.common.js",
-    "keyword": "gosuncn-ui",
+    "keyword": "@time-ruler/vue",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build --target lib --name index --dest lib packages/index.js"

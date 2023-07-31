@@ -2,7 +2,7 @@
     <div class="time-ruler" ref="RulerBody">
         <div class="scroll-wrapper" ref="rulePage">
             <div class="scroll-content" ref="scrollRule">
-                <date-item v-for="(item) in ruler.list" :key="item" :day="item" :type="ruler.type" :item-width="ruler.itemWidth"></date-item>
+                <date-item v-for="(item) in ruler.list" :key="item" :day="item" :type="ruler.type"></date-item>
             </div>
             <div class="ruler-center-line"></div>
             <div class="ruler-center-line-time">{{ ruler.day }} {{ ruler.nowTime }}</div>
@@ -27,7 +27,7 @@ export default {
         return {
             ruler: {
                 list: [],
-                itemWidth: 100,
+                itemWidth: 108,
                 nowTime: '',
                 day: '',
                 type: 0
@@ -35,7 +35,7 @@ export default {
         }
     },
     mounted() {
-        this.ruler = new Ruler(this.$refs.RulerBody, this.$refs.rulePage, this.$refs.scrollRule, this.date, this.change)
+        this.ruler = new Ruler(this.$refs.RulerBody, this.$refs.rulePage, this.$refs.scrollRule, this.date, this.change ,this.changeTime)
         this.$nextTick(() => {
             this.ruler.createScroll()
         })
@@ -46,6 +46,9 @@ export default {
     methods: {
         change(time) {
             this.$emit('change', time)
+        },
+        changeTime(r) {
+            this.$emit('changeTime', r.day + ' ' + r.nowTime)
         },
         setTime() {
             this.ruler.setTime(new Date())
