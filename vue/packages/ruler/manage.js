@@ -31,7 +31,7 @@ const convertSec = (sec) => {
 }
 
 export default class Ruler {
-    constructor(bodyEl, el, scrollRuleEl, date, changeFun) {
+    constructor(bodyEl, el, scrollRuleEl, date, changeFun, changRuler) {
         this.itemWidth = 108
         this.bodyWidthHalf = 0
         this.posX = 0
@@ -46,6 +46,7 @@ export default class Ruler {
         this.bodyEl = bodyEl
         this.el = el
         this.changeFun = changeFun
+        this.changRuler = changRuler
 
         this.list = []
         this.day = moment(date).format('YYYY-MM-DD')
@@ -63,6 +64,9 @@ export default class Ruler {
     }
     watchResize() {
         this.resize = new ResizeObserver(() => {
+            if (!this.scrollRule) {
+                return
+            }
             this.scrollRule.refresh()
             this.getBodyWidth()
             this.resetScale()
@@ -113,6 +117,9 @@ export default class Ruler {
             sec = Number(x.valueOf())
         }
         this.nowTime = convertSec(sec)
+        if (this.changRuler) {
+            this.changRuler(this)
+        }
     }
     onScrollStart() {
         this.scrollStart = true

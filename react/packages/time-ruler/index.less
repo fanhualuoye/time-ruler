@@ -1,0 +1,119 @@
+.time-ruler {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  background: #202731;
+  padding-top: 6px;
+  user-select: none;
+  overflow: hidden;
+
+  .scroll-wrapper {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    padding-top: 30px;
+    overflow: hidden;
+    z-index: 99;
+    padding-bottom: 4px;
+  }
+
+  .scroll-content {
+    display: inline-block;
+    cursor: pointer;
+    padding-bottom: 4px;
+    position: relative;
+  }
+
+  .ruler-center-line {
+    position: absolute;
+    border-left: 1px solid #2b5fd9;
+    left: 50%;
+    bottom: 0px;
+    height: 38px;
+    width: 1px;
+    text-align: center;
+  }
+
+  .ruler-center-line-time {
+    position: absolute;
+    left: calc(50% - 108px);
+    top: 0;
+    font-size: 12px;
+    font-family: Segoe UI;
+    font-weight: 400;
+    color: #B8BECC;
+    width: 200px;
+    text-align: center;
+  }
+  .scroll-date-list {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    color: #B8BECC;
+    position: relative;
+
+    .scroll-date-has {
+      height: 6px;
+      background: #2b5fd9;
+      position: absolute;
+      bottom: -8px;
+    }
+
+    .scroll-date-item {
+      width: 108px;
+      position: relative;
+      height: 5px;
+      .scroll-date-number {
+        position: absolute;
+        left: -14px;
+        top: -20px;
+        font-size: 12px;
+        font-family: Segoe UI;
+        font-weight: 400;
+        color: #b8becc;
+      }
+
+      .scroll-date-day {
+        position: absolute;
+        left: -14px;
+        top: -30px;
+        font-size: 12px;
+        font-family: Segoe UI;
+        font-weight: 400;
+        color: #b8becc;
+      }
+
+      &:after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        border-left: 1px solid #5d718d;
+      }
+    }
+  }
+  .child-item-box {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .child-item {
+      flex: 1;
+      height: 4px;
+      border-right: 1px solid #3E4F68;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      &:nth-child(5) {
+        height: 5px;
+        border-right: 1px solid #5D718D;
+      }
+    }
+  }
+}

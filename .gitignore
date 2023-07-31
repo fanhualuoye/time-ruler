@@ -1,5 +1,5 @@
 .DS_Store
-/node_modules
+node_modules
 dist
 lib
 coverage
@@ -26,3 +26,4 @@ pnpm-debug.log*
 myWebpack.js
 
 ./react/node_modules
+/react/node_modules/

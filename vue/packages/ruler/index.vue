@@ -1,5 +1,5 @@
 <template>
-    <div class="horizontal-container" ref="RulerBody">
+    <div class="time-ruler" ref="RulerBody">
         <div class="scroll-wrapper" ref="rulePage">
             <div class="scroll-content" ref="scrollRule">
                 <date-item v-for="(item) in ruler.list" :key="item" :day="item" :type="ruler.type" :item-width="ruler.itemWidth"></date-item>
@@ -15,7 +15,7 @@ import DateItem from './dateItem'
 import Ruler from "./manage"
 
 export default {
-    name: 'InfinityRuler',
+    name: 'TimeRuler',
     components: { DateItem },
     props: {
         date: {
@@ -34,33 +34,28 @@ export default {
             }
         }
     },
-    watch: {
-        date(val) {
-            console.log('val', val)
-        }
-    },
     mounted() {
-        this.ruler = new Ruler(this.$refs.RulerBody, this.$refs.rulePage, this.$refs.scrollRule, this.date, (time) => {
-            console.log('aaa', time)
-        })
-        console.log('ruler', this.ruler)
+        this.ruler = new Ruler(this.$refs.RulerBody, this.$refs.rulePage, this.$refs.scrollRule, this.date, this.change)
         this.$nextTick(() => {
             this.ruler.createScroll()
         })
-        setInterval(() => {
-            this.ruler.setTime(new Date())
-        }, 1000)
     },
     beforeDestroy() {
         this.ruler.destroy()
     },
     methods: {
+        change(time) {
+            this.$emit('change', time)
+        },
+        setTime() {
+            this.ruler.setTime(new Date())
+        }
     }
 }
 </script>
 
-<style scoped lang="less">
-.horizontal-container {
+<style lang="less">
+.time-ruler {
     width: 100%;
     position: relative;
     cursor: pointer;
